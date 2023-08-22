@@ -1,1 +1,5 @@
-drf-backend
+# virtual environment 
+drf-backend/
+
+# database backup
+db-backups/
