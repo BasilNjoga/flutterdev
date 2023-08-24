@@ -18,7 +18,7 @@ class _MyAppState extends State<MyApp> {
       const LatLng(-1.0909771979474097, 37.01120191308141);
   final LatLng destination =
       const LatLng(-1.1248462242034525, 37.00324046871465);
-  final googleApiKey = "AIzaSyDA5GRgkanc2LJyzcmC62cZ9j82QgVjyKg";
+  final String googleApiKey = "AIzaSyDA5GRgkanc2LJyzcmC62cZ9j82QgVjyKg";
 
   List<LatLng> polylineCoordinates = [];
 
@@ -69,7 +69,7 @@ class _MyAppState extends State<MyApp> {
             zoom: 14.5,
           ),
           polylines: {
-            const Polyline(
+            Polyline(
               polylineId: PolylineId("route"),
               points: polylineCoordinates,
             ),
