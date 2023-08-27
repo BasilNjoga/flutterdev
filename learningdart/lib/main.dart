@@ -1,25 +1,27 @@
 import 'package:flutter/material.dart';
 
 
-
-
-void printMyHeroes() {
- var superheroes = ['Batman', 'Greenlantern', 'Harry Potter'];
- print(superheroes[1]);
-}
-
-
 void main() { 
   runApp(const MyApp());
 }
 
+void test() {
+  final name = 'basil';
+  if (name == 'foo') {
+    print('Yes this is foo');
+  } else  if (name != 'foo') {
+    print("This is no foo");
+  } else { 
+    print('Nooh it is not');
+  }
+}
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    printMyHeroes();
+    test();
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
