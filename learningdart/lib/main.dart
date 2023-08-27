@@ -5,15 +5,11 @@ void main() {
   runApp(const MyApp());
 }
 
-void test() {
-  final name = 'basil';
-  if (name == 'foo') {
-    print('Yes this is foo');
-  } else  if (name != 'foo') {
-    print("This is no foo");
-  } else { 
-    print('Nooh it is not');
-  }
+void test(String? firstName, String? middleName, String? lastName) {
+  String? name = firstName;
+  name ??= middleName;
+  name ??= lastName;
+  print(name);
 }
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -21,7 +17,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    test();
+    /* hello */
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
