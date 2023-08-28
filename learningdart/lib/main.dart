@@ -5,19 +5,40 @@ void main() {
   runApp(const MyApp());
 }
 
-void test(String? firstName, String? middleName, String? lastName) {
-  String? name = firstName;
-  name ??= middleName;
-  name ??= lastName;
-  print(name);
+
+class Cat {
+  final String name;
+  Cat(this.name);
+  }
+class Person {
+  final String firstName;
+  final String lastName;
+
+  Person(this.firstName, this.lastName);
 }
+
+extension FullName on Person {
+  String get fullName => "$firstName $lastName";
+}
+extension Run on Cat {
+  void run() {
+    print("Cat $name is running");
+  }
+}
+
+
+void test() {
+ final foo = Person('foo', 'Bar');
+ print(foo.fullName);
+}
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    /* hello */
+    test();
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
