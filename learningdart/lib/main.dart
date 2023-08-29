@@ -1,3 +1,5 @@
+import 'dart:js_interop';
+
 import 'package:flutter/material.dart';
 
 
@@ -5,36 +7,36 @@ void main() {
   runApp(const MyApp());
 }
 
+class PairofIntegers {
+  final int value1;
+  final int value2;
 
-class Cat {
-  final String name;
-  Cat(this.name);
+  PairofIntegers(this.value1, this.value2);
+}
+class PairofStrings {
+  final String value1;
+  final String value2;
+
+  PairofStrings(this.value1, this.value2);
+
+  
+}
+
+class Pair<A, B>{
+  final A value1;
+  final B value2;
+  Pair(this.value1, this.value2);
+}
+
+
+void test()  {
+  final names = Pair('foo', 20);
+  print(names);
   }
-class Person {
-  final String firstName;
-  final String lastName;
 
-  Person(this.firstName, this.lastName);
-}
-
-extension FullName on Person {
-  String get fullName => "$firstName $lastName";
-}
-extension Run on Cat {
-  void run() {
-    print("Cat $name is running");
-  }
-}
-
-
-void test() {
- final foo = Person('foo', 'Bar');
- print(foo.fullName);
-}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
