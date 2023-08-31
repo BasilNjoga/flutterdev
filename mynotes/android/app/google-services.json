@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "829759480602",
+    "project_id": "basilnjoga-notesapp",
+    "storage_bucket": "basilnjoga-notesapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:829759480602:android:2349728fec411c51a542a3",
+        "android_client_info": {
+          "package_name": "tech.basilnjoga.mynotes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "829759480602-qbhclat1b6mpok74ilf86sbmuffpn1ub.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCR3yV73dxNe45IdEUf7bbBdvjh4wATEyM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "829759480602-qbhclat1b6mpok74ilf86sbmuffpn1ub.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
