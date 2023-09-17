@@ -1,27 +1,11 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
+import 'package:mynotes/services/crud/crud_exceptions.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart' show join;
 import 'package:path_provider/path_provider.dart';
 
-class DatabaseAlreadyOpenException implements Exception{}
 
-class UnableToGetDocumentsDirectory implements Exception{}
-
-class DatabaseIsNotOpen implements Exception{}
-
-class CouldNotDeleteUser implements Exception{}
-
-class UserAlreadyExists implements Exception{}
-
-class CouldNotFindUser implements Exception{}
-
-class CouldNotDeleteNote implements Exception{}
-
-class CouldNotFindNotes implements Exception{}
-
-class CouldNotUpdateNote implements Exception{}
 
 class NotesService {
   Database? _db;
@@ -197,8 +181,8 @@ class NotesService {
     }
     try {
       final docsPath = await getApplicationDocumentsDirectory();
-      final dbPath = join(docsPath, dbName);
-      final db = openDatabase(dbPath);
+      final dbPath = join(docsPath.path, dbName);
+      final db =  await openDatabase(dbPath);
       _db = db;
 
       // create user table
@@ -258,13 +242,14 @@ class DatabaseNote{
       isSyncedWithCloud =
         (map[isSyncedWithCloudColumn] as int) == 1 ? true : false;
 
-        @override
-  String toString() => 'Note, ID = $id, userId = $userId, isSyncedWithClour = $isSyncedWithCloud, text = $text';
+  @override
+  String toString() => 'Note, ID = $id, userId = $userId, isSyncedWithCloud = $isSyncedWithCloud, text = $text';
 
   
-  @override bool operator == (covariant DatabaseNote other) => id == other.id;
-  
   @override
+  bool operator ==(covariant DatabaseNote other) => id == other.id;
+  
+  @override 
   int get hashCode => id.hashCode;
 
 }
