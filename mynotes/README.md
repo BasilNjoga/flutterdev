@@ -1,16 +1,11 @@
 # mynotes
 
-A new Flutter project.
+This is a fullstack notes application for users making notes saving them on the internet and editing them whenever they need to 
+## Technologies used
+ - Frontend : flutter
+ - Backend : Firebase
+- Database and backup - sqlite
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+It implements key flutter foundational concepts such as state management with firebase for authentication and database,
+I similarly have a sqlite database to work locally along firebase.
+I'm implementing streams for stream control, auth provider and auth services.

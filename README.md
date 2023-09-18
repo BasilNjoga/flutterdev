@@ -12,7 +12,11 @@ It implements key flutter foundational concepts such as state management with fi
 I similarly have a sqlite database to work locally along firebase.
 I'm implementing streams for stream control, auth provider and auth services.
 
+<br>
+
 [Google maps in flutter](https://github.com/BasilNjoga/flutterdev.git) - This is flutter application leveraging the google maps functionality and implements mapping,route and location functions
+
+<br>
 
 [Fullstack With Django](https://www.codecademy.com/pages/contribute-docs)  - This is an E Commerce application using a flutter frontend connected with a django backend and rust for microservices
 
