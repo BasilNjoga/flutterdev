@@ -3,8 +3,8 @@
 This is a series of smaller Flutter and Dart applications i've been creating to explore key concepts.
 
 
-It is Focused on essential topics such as state management, Firebase authentication, and database integration.
-Every application has it's own readme file for further clarificaiton and documentation on how to set up and install
+It is Focused on essential topics such as state management, Firebase authentication, Integration with API's and backend frameworks such as Django and database integration.
+Every application has it's own readme file for further clarification and documentation on how to set up and install
 
 
  [My Notes Application](https://github.com/BasilNjoga/flutterdev/tree/main/mynotes) - This is a fullstack notes application with a flutter frontend and firebase backend.
