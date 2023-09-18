@@ -14,11 +14,11 @@ I'm implementing streams for stream control, auth provider and auth services.
 
 <br>
 
-[Google maps in flutter](https://github.com/BasilNjoga/flutterdev.git) - This is flutter application leveraging the google maps functionality and implements mapping,route and location functions
+[Google maps in flutter](https://github.com/BasilNjoga/flutterdev/tree/main/google_maps_in_flutter) - This is flutter application leveraging the google maps functionality and implements mapping,route and location functions
 
 <br>
 
-[Fullstack With Django](https://www.codecademy.com/pages/contribute-docs)  - This is an E Commerce application using a flutter frontend connected with a django backend and rust for microservices
+[Fullstack With Django](https://github.com/BasilNjoga/flutterdev/tree/main/fullstack_with_django_backend)  - This is an E Commerce application using a flutter frontend connected with a django backend and rust for microservices
 
-[Work Flow Planner](https://www.codecademy.com/pages/contribute-docs)  - This is a workflow application, it's used to improve workflows by allowing you to set important task, break them down into specific things required to achieve it and set reminders.
+[Work Flow Planner](https://github.com/BasilNjoga/flutterdev/tree/main/myworkflow)  - This is a workflow application, it's used to improve workflows by allowing you to set important task, break them down into specific things required to achieve it and set reminders.
 
