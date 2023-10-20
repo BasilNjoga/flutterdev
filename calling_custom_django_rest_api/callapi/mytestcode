@@ -1,0 +1,51 @@
+post . dart
+
+class Passenger {
+  final String email;
+  final String name;
+
+  Passenger({
+    required this.email,
+    required this.name,
+    
+  });
+
+  factory Passenger.fromJson(Map<String, dynamic> json) => Passenger(
+    email: json['email'],
+    name: json['name'],
+    );
+
+}
+
+
+
+main . dart
+
+
+import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+
+
+
+void main() {
+  runApp(const Myapp());
+}
+
+class Myapp extends StatelessWidget {
+  const Myapp({super.key});
+
+  @override
+  Widget build(BuildContext context) => MaterialApp(
+    debugShowCheckedModeBanner: false,
+    title: 'http package',
+    theme: ThemeData(
+      primarySwatch: Colors.amber,
+      primaryColor: Colors.blue,
+    ),
+    home: const HomeWidget(),
+  );
+
+// Get Api Request
+
+
+}

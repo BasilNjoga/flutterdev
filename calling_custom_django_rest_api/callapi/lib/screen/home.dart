@@ -13,52 +13,49 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  List<User> users = [];
+  late Future<User> futureUser;
+
+  @override
+  void initState()  {
+    super.initState();
+    futureUser = fetchUser();
+  }
 
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
       appBar: AppBar(
-        title: const Text('Rest API call'),
+        title: const Text('Fetching data from my API'),
       ),
-      body: ListView.builder(
-        itemCount: users.length,
-        itemBuilder: (context, index) {
-        final user = users[index];
-        final email = user.name;
-        final name = user.email;
-        return ListTile(
-          title: Text(name),
-          subtitle: Text(email),
-        );
-      },
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: fetchUsers,
+      body: Center(
+        child: FutureBuilder<User>(
+          
+          future: futureUser,
+          builder: (context, snapshot) {
+            if(snapshot.hasData) {
+              return Text(snapshot.data!.name);
+            } else if (snapshot.hasError) {
+              return Text('${snapshot.error}');
+            }
+
+            return const CircularProgressIndicator();
+          },
         ),
+      ),
+      
     );
   }
-
-
-void fetchUsers()  async {
-  print('fetchUser called');
-  const url = 'http://127.0.0.1:8000/passengers/';
-  final uri = Uri.parse(url);
-  final response = await http.get(uri);
-  final body = response.body;
-  final json = jsonDecode(body);
-  final results = json['results'] as List<dynamic>;
-  final transformed = results.map((e) {
-    return User(
-        name: e['name'],
-        email: e['email'],
-        location: e['location'],
-    );
-  }).toList();
-  setState(() {
-    users = transformed;
-  });
-  print('fetchUser completed');
-
 }
+
+Future<User> fetchUser() async {
+  const uri = 'http://127.0.0.1:8000/passengers/4/';
+  final response = await http.get(Uri.parse(uri));
+
+  if (response.statusCode == 200) {
+    // if the response in a 200 OK4
+    return User.fromJson(jsonDecode(response.body));
+  }
+  else {
+    throw Exception('Failed to load users');
+  }
 }
