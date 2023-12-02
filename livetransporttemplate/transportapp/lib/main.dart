@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+//import 'package:provider/provider.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 import 'package:location/location.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -13,25 +13,24 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => MyAppState(),
-      child: MaterialApp(
-        title: 'Live Transport App',
-        theme: ThemeData(
-            useMaterial3: true,
-            colorScheme: ColorScheme.fromSeed(
-                seedColor: Color.fromRGBO(244, 224, 185, 1.0))),
-        home: MyHomePage(),
-      ),
+    return MaterialApp(
+      title: 'Live Transport App',
+      theme: ThemeData(
+          useMaterial3: true,
+          colorScheme: ColorScheme.fromSeed(
+              seedColor: const Color.fromRGBO(244, 224, 185, 1.0))),
+      home: const MyHomePage(),
     );
   }
 }
 
-class MyAppState extends ChangeNotifier {}
+
 
 // ...
 
 class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key});
+
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
@@ -43,16 +42,16 @@ class _MyHomePageState extends State<MyHomePage> {
     Widget page;
     switch (selectedIndex) {
       case 0:
-        page = GeneratorPage();
+        page = const GeneratorPage();
         break;
       case 1:
-        page = MapsPage();
+        page = const MapsPage();
         break;
       case 2:
-        page = Placeholder();
+        page = const Placeholder();
         break;
       case 3:
-        page = Placeholder();
+        page = const Placeholder();
         break;
       default:
         throw UnimplementedError('no widget for $selectedIndex');
@@ -64,7 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
             SafeArea(
               child: NavigationRail(
                 extended: constraints.maxWidth >= 600,
-                destinations: [
+                destinations: const [
                   NavigationRailDestination(
                     icon: Icon(Icons.home,
                         color: Color.fromRGBO(46, 56, 64, 1.0)),
@@ -106,12 +105,14 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 
 class GeneratorPage extends StatelessWidget {
+  const GeneratorPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     // var appState = context.watch<MyAppState>();
     final theme = Theme.of(context);
     final style = theme.textTheme.titleLarge!.copyWith(
-      color: Color.fromRGBO(46, 56, 64, 1.0),
+      color: const Color.fromRGBO(46, 56, 64, 1.0),
     );
 
     return Center(
@@ -127,7 +128,7 @@ class GeneratorPage extends StatelessWidget {
               ),
             ),
           ),
-          Image(
+          const Image(
             height: 200,
             image: AssetImage('images/city_bus.jpg'),
           ),
@@ -148,11 +149,14 @@ class GeneratorPage extends StatelessWidget {
 }
 
 class MapsPage extends StatefulWidget {
+  const MapsPage({super.key});
+
   @override
-  _MapsPageState createState() => _MapsPageState();
+  State<MapsPage> createState() => _MapsPageState();
 }
 
 class _MapsPageState extends State<MapsPage> {
+
   late GoogleMapController mapController;
 
   final LatLng sourceLocation =
@@ -202,12 +206,11 @@ class _MapsPageState extends State<MapsPage> {
     getPolyPoints();
     super.initState();
   }
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return  Scaffold(
       appBar: AppBar(
-        title: const Text('Maps Sample App'),
+        title:  const Text('Maps Sample App'),
         elevation: 2,
       ),
       body: currentLocation == null
@@ -221,13 +224,13 @@ class _MapsPageState extends State<MapsPage> {
               ),
               polylines: {
                 Polyline(
-                  polylineId: PolylineId("route"),
+                  polylineId: const PolylineId("route"),
                   points: polylineCoordinates,
                 ),
               },
               markers: {
                 Marker(
-                  markerId: MarkerId("currentLocation"),
+                  markerId: const MarkerId("currentLocation"),
                   position: LatLng(
                       currentLocation!.latitude!, currentLocation!.longitude!),
                 ),
@@ -242,3 +245,5 @@ class _MapsPageState extends State<MapsPage> {
     );
   }
 }
+
+
